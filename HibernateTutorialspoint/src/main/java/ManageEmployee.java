@@ -26,6 +26,8 @@ public class ManageEmployee {
 		ME.updateEmployee(empID1, 5000);
 		ME.deleteEmployee(empID2);
 		ME.listEmployees();
+		
+		System.out.printf("Thats all\n");
 	}
 
 	/* Method to CREATE an employee in the database */
