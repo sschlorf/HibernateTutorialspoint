@@ -10,7 +10,6 @@ public class ManageEmployee {
 
 	public static void main(String[] args) {
 		ManageEmployee ME = new ManageEmployee();
-		ME.init();
 
 		/* Add few employee records in database */
 		Integer empID1 = ME.addEmployee("Zara", "Ali", 1000);
@@ -25,7 +24,7 @@ public class ManageEmployee {
 		System.out.printf("That's all\n");
 	}
 
-	public void init() {
+	public ManageEmployee() {
 		try {
 			factory = new Configuration().configure().buildSessionFactory();
 		} catch (Throwable ex) {
