@@ -14,7 +14,9 @@ public class ManageEmployeeTest extends TestCase {
 	}
 
 	public void testAddEmployee() {
-		assertTrue("Check that an employee is added and those id is delivered", new ManageEmployee().addEmployee("TestEmployee", "TestEmployeeLongName", 10000) > 0);
+		ManageEmployee ME = new ManageEmployee();
+		ME.init();
+		assertTrue("Check that an employee is added and those id is delivered", ME.addEmployee("TestEmployee", "TestEmployeeLongName", 10000) > 0);
 	}
 
 }

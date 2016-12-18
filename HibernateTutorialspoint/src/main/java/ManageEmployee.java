@@ -9,13 +9,8 @@ public class ManageEmployee {
 	private static SessionFactory factory;
 
 	public static void main(String[] args) {
-		try {
-			factory = new Configuration().configure().buildSessionFactory();
-		} catch (Throwable ex) {
-			System.err.println("Failed to create sessionFactory object." + ex);
-			throw new ExceptionInInitializerError(ex);
-		}
 		ManageEmployee ME = new ManageEmployee();
+		ME.init();
 
 		/* Add few employee records in database */
 		Integer empID1 = ME.addEmployee("Zara", "Ali", 1000);
@@ -26,8 +21,17 @@ public class ManageEmployee {
 		ME.updateEmployee(empID1, 5000);
 		ME.deleteEmployee(empID2);
 		ME.listEmployees();
-		
-		System.out.printf("Thats all\n");
+
+		System.out.printf("That's all\n");
+	}
+
+	public void init() {
+		try {
+			factory = new Configuration().configure().buildSessionFactory();
+		} catch (Throwable ex) {
+			System.err.println("Failed to create sessionFactory object." + ex);
+			throw new ExceptionInInitializerError(ex);
+		}
 	}
 
 	/* Method to CREATE an employee in the database */
