@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.List;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -54,12 +55,13 @@ public class ManageEmployee {
 	}
 
 	/* Method to READ all the employees */
-	public void listEmployees() {
+	public List<Employee> listEmployees() {
 		Session session = factory.openSession();
 		Transaction tx = null;
+		List<Employee> employees = null;
 		try {
 			tx = session.beginTransaction();
-			List<Employee> employees = session.createQuery("FROM Employee").getResultList();
+			employees = session.createQuery("FROM Employee").getResultList();
 			for (int i = 0; i < employees.size(); i++) {
 				System.out.print("First Name: " + employees.get(i).getFirstName());
 				System.out.print(" Last Name: " + employees.get(i).getLastName());
@@ -73,6 +75,7 @@ public class ManageEmployee {
 		} finally {
 			session.close();
 		}
+		return(employees);
 	}
 
 	/* Method to UPDATE salary for an employee */
@@ -81,7 +84,7 @@ public class ManageEmployee {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			Employee employee = (Employee) session.get(Employee.class, EmployeeID);
+			Employee employee = session.get(Employee.class, EmployeeID);
 			employee.setSalary(salary);
 			session.update(employee);
 			tx.commit();
@@ -100,7 +103,7 @@ public class ManageEmployee {
 		Transaction tx = null;
 		try {
 			tx = session.beginTransaction();
-			Employee employee = (Employee) session.get(Employee.class, EmployeeID);
+			Employee employee = session.get(Employee.class, EmployeeID);
 			session.delete(employee);
 			tx.commit();
 		} catch (HibernateException e) {
