@@ -36,9 +36,6 @@ public class ManageEmployeeTest {
 
 	@Test
 	public void testListEmployees() {
-		List<Employee> l = new ManageEmployee().listEmployees();
-		Employee employee = new Employee();
-		employee.setFirstName("TestEmployee");
 		assertTrue("Check that employees listed", new ManageEmployee().listEmployees().get(20).getFirstName().startsWith("TestEmployee"));
 	}
 }
