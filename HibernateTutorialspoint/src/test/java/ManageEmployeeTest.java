@@ -36,6 +36,6 @@ public class ManageEmployeeTest {
 
 	@Test
 	public void testListEmployees() {
-		assertTrue("Check that employees listed", new ManageEmployee().listEmployees().get(20).getFirstName().startsWith("TestEmployee"));
+		assertTrue("Check that employees list size is greater than zero", new ManageEmployee().listEmployees().size() > 0);
 	}
 }
