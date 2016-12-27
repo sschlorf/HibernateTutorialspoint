@@ -41,5 +41,6 @@ public class ManageEmployeeTest {
 		assertTrue("Check that the first name of the employee last inserted has a length greater than zero", l.get(l.size() - 1).getFirstName().length() > 0);
 		assertTrue("This test is created only to check the integration of the test branch back to the base branch", true);
 		assertTrue("now I locally merged the testbranch with the master and discovered, that my repository in github didn't recognizes this", true);
+		assertTrue("modify this file outsite of eclipse to use git cli for committing and propagating to remote repository", true);
 	}
 }
