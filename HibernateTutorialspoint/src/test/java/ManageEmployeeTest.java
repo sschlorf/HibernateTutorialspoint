@@ -39,5 +39,6 @@ public class ManageEmployeeTest {
 		List<Employee> l = new ManageEmployee().listEmployees();
 		assertTrue("Check that employees list size is greater than zero", l.size() > 0);
 		assertTrue("Check that the first name of the employee last inserted has a length greater than zero", l.get(l.size() - 1).getFirstName().length() > 0);
+		assertTrue("This test is created only to check the integration of the test branch back to the base branch", true);
 	}
 }
